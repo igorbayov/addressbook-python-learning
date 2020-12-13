@@ -7,10 +7,6 @@ class GroupHelper:
         wd = self.app.wd
         wd.find_element_by_link_text("groups").click()
 
-    def return_groups_page(self):
-        wd = self.app.wd
-        wd.find_element_by_link_text("group page").click()
-
     def create(self, group):
         wd = self.app.wd
         self.open_groups_page()
@@ -23,3 +19,7 @@ class GroupHelper:
         wd.find_element_by_name("group_footer").send_keys(group.footer)
         wd.find_element_by_name("submit").click()
         self.return_groups_page()
+
+    def return_groups_page(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("group page").click()
