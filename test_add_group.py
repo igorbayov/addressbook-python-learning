@@ -9,36 +9,42 @@ class TestAddGroup():
         self.wd.maximize_window()
 
     def open_home_page(self):
-        self.wd.get("http://localhost/addressbook/")
+        wd = self.wd
+        wd.get("http://localhost/addressbook/")
 
     def login(self, username, password):
+        wd = self.wd
         self.open_home_page()
-        self.wd.find_element(By.NAME, "user").click()
-        self.wd.find_element(By.NAME, "user").send_keys(username)
-        self.wd.find_element(By.NAME, "pass").click()
-        self.wd.find_element(By.NAME, "pass").send_keys(password)
-        self.wd.find_element(By.CSS_SELECTOR, "input[type=submit]").click()
+        wd.find_element(By.NAME, "user").click()
+        wd.find_element(By.NAME, "user").send_keys(username)
+        wd.find_element(By.NAME, "pass").click()
+        wd.find_element(By.NAME, "pass").send_keys(password)
+        wd.find_element(By.CSS_SELECTOR, "input[type=submit]").click()
 
     def open_groups_page(self):
-        self.wd.find_element(By.LINK_TEXT, "groups").click()
+        wd = self.wd
+        wd.find_element(By.LINK_TEXT, "groups").click()
 
     def return_groups_page(self):
-        self.wd.find_element(By.LINK_TEXT, "group page").click()
+        wd = self.wd
+        wd.find_element(By.LINK_TEXT, "group page").click()
 
     def logout(self):
-        self.wd.find_element(By.LINK_TEXT, "Logout").click()
+        wd = self.wd
+        wd.find_element(By.LINK_TEXT, "Logout").click()
 
     def create_group(self, group):
+        wd = self.wd
         self.open_groups_page()
-        self.wd.find_element(By.NAME, "new").click()
-        self.wd.find_element(By.NAME, "group_name").click()
-        self.wd.find_element(By.NAME, "group_name").send_keys(group.name)
-        self.wd.find_element(By.NAME, "group_header").click()
-        self.wd.find_element(By.NAME, "group_header").send_keys(group.header)
-        self.wd.find_element(By.NAME, "group_footer").click()
-        self.wd.find_element(By.NAME, "group_footer").send_keys(group.footer)
-        self.wd.find_element(By.CSS_SELECTOR, "form:nth-child(2)").click()
-        self.wd.find_element(By.NAME, "submit").click()
+        wd.find_element(By.NAME, "new").click()
+        wd.find_element(By.NAME, "group_name").click()
+        wd.find_element(By.NAME, "group_name").send_keys(group.name)
+        wd.find_element(By.NAME, "group_header").click()
+        wd.find_element(By.NAME, "group_header").send_keys(group.header)
+        wd.find_element(By.NAME, "group_footer").click()
+        wd.find_element(By.NAME, "group_footer").send_keys(group.footer)
+        wd.find_element(By.CSS_SELECTOR, "form:nth-child(2)").click()
+        wd.find_element(By.NAME, "submit").click()
         self.return_groups_page()
 
     def test_add_group(self):
@@ -52,4 +58,5 @@ class TestAddGroup():
         self.logout()
 
     def teardown_method(self, method):
-        self.wd.quit()
+        wd = self.wd
+        wd.quit()
