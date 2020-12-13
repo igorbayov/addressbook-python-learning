@@ -11,12 +11,12 @@ def app(request):
 
 
 def test_add_group(app):
-    app.login("admin", "secret")
-    app.create_group(Group(name="Название группы", header="Значение для хэдэра", footer="Значение для футера"))
-    app.logout()
+    app.session.login("admin", "secret")
+    app.create_group(Group(name="Group_name", header="Header_value", footer="Footer_value"))
+    app.session.logout()
 
 
 def test_add_empty_group(app):
-    app.login("admin", "secret")
+    app.session.login("admin", "secret")
     app.create_group(Group(name="", header="", footer=""))
-    app.logout()
+    app.session.logout()
