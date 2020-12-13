@@ -6,6 +6,7 @@ class TestAddGroup():
     def setup_method(self, method):
         self.wd = webdriver.Firefox()
         self.wd.maximize_window()
+        self.open_home_page()
 
     def teardown_method(self, method):
         self.wd.quit()
@@ -41,7 +42,6 @@ class TestAddGroup():
         self.wd.find_element(By.LINK_TEXT, "Logout").click()
 
     def test_add_group(self):
-        self.open_home_page()
         self.login()
         self.open_groups_page()
         self.create_group()
