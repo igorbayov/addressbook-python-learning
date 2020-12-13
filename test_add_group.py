@@ -44,7 +44,14 @@ class TestAddGroup():
     def test_add_group(self):
         self.login(username="admin", password="secret")
         self.open_groups_page()
-        self.create_group("First group name", "Header value for first group", "Footer value for first group")
+        self.create_group(name="First group name", header="Header value for first group", footer="Footer value for first group")
+        self.return_groups_page()
+        self.logout()
+
+    def test_add_empty_group(self):
+        self.login(username="admin", password="secret")
+        self.open_groups_page()
+        self.create_group(name="", header="", footer="")
         self.return_groups_page()
         self.logout()
 
