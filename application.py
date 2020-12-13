@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 
@@ -15,36 +14,35 @@ class Application:
     def login(self, username, password):
         wd = self.wd
         self.open_home_page()
-        wd.find_element(By.NAME, "user").click()
-        wd.find_element(By.NAME, "user").send_keys(username)
-        wd.find_element(By.NAME, "pass").click()
-        wd.find_element(By.NAME, "pass").send_keys(password)
-        wd.find_element(By.CSS_SELECTOR, "input[type=submit]").click()
+        wd.find_element_by_name("user").click()
+        wd.find_element_by_name("user").send_keys(username)
+        wd.find_element_by_name("pass").click()
+        wd.find_element_by_name("pass").send_keys(password)
+        wd.find_element_by_css_selector("input[type=submit]").click()
 
     def open_groups_page(self):
         wd = self.wd
-        wd.find_element(By.LINK_TEXT, "groups").click()
+        wd.find_element_by_link_text("groups").click()
 
     def return_groups_page(self):
         wd = self.wd
-        wd.find_element(By.LINK_TEXT, "group page").click()
+        wd.find_element_by_link_text("group page").click()
 
     def logout(self):
         wd = self.wd
-        wd.find_element(By.LINK_TEXT, "Logout").click()
+        wd.find_element_by_link_text("Logout").click()
 
     def create_group(self, group):
         wd = self.wd
         self.open_groups_page()
-        wd.find_element(By.NAME, "new").click()
-        wd.find_element(By.NAME, "group_name").click()
-        wd.find_element(By.NAME, "group_name").send_keys(group.name)
-        wd.find_element(By.NAME, "group_header").click()
-        wd.find_element(By.NAME, "group_header").send_keys(group.header)
-        wd.find_element(By.NAME, "group_footer").click()
-        wd.find_element(By.NAME, "group_footer").send_keys(group.footer)
-        wd.find_element(By.CSS_SELECTOR, "form:nth-child(2)").click()
-        wd.find_element(By.NAME, "submit").click()
+        wd.find_element_by_name("new").click()
+        wd.find_element_by_name("group_name").click()
+        wd.find_element_by_name("group_name").send_keys(group.name)
+        wd.find_element_by_name("group_header").click()
+        wd.find_element_by_name("group_header").send_keys(group.header)
+        wd.find_element_by_name("group_footer").click()
+        wd.find_element_by_name("group_footer").send_keys(group.footer)
+        wd.find_element_by_name("submit").click()
         self.return_groups_page()
 
     def destroy(self):
