@@ -14,11 +14,11 @@ class TestAddGroup():
     def open_home_page(self):
         self.wd.get("http://localhost/addressbook/")
 
-    def login(self):
+    def login(self, username, password):
         self.wd.find_element(By.NAME, "user").click()
-        self.wd.find_element(By.NAME, "user").send_keys("admin")
+        self.wd.find_element(By.NAME, "user").send_keys(username)
         self.wd.find_element(By.NAME, "pass").click()
-        self.wd.find_element(By.NAME, "pass").send_keys("secret")
+        self.wd.find_element(By.NAME, "pass").send_keys(password)
         self.wd.find_element(By.CSS_SELECTOR, "input[type=submit]").click()
 
     def open_groups_page(self):
@@ -42,7 +42,7 @@ class TestAddGroup():
         self.wd.find_element(By.LINK_TEXT, "Logout").click()
 
     def test_add_group(self):
-        self.login()
+        self.login(username="admin", password="secret")
         self.open_groups_page()
         self.create_group()
         self.return_groups_page()
