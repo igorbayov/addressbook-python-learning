@@ -6,7 +6,7 @@ from fixture.session import SessionHelper
 class Application:
 
     def __init__(self):
-        self.wd = webdriver.Chrome(executable_path="D:/addressbook-python-learning/chromedriver.exe")
+        self.wd = webdriver.Chrome(executable_path="C:/selenium_chromedriver_win32/chromedriver.exe")
         self.wd.maximize_window()
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
