@@ -10,7 +10,7 @@ class Application:
     def __init__(self):
         self.wd = webdriver.Chrome(executable_path="C:/selenium_chromedriver_win32/chromedriver.exe")
         self.wd.maximize_window()
-        self.wd.implicitly_wait(5)
+        # self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
 
